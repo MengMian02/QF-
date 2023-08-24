@@ -1,4 +1,4 @@
-from Backtest import *
+from Backtest(data_handling) import *
 import pandas as pd
 
 fund_EMA = 10000
