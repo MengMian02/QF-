@@ -1,0 +1,23 @@
+import os
+import pandas as pd
+from technical import *
+
+csv_file = 'sz301312.csv'
+file_path = os.path.abspath(os.path.dirname(__file__)) + '\股票数据' + '\\' + csv_file
+
+print(file_path) 
+
+table = pd.read_csv(file_path, encoding = 'utf-8-sig', parse_dates= ['交易日期'], dayfirst=False)
+
+
+technical_indicator(table)
+
+table.to_csv(file_path, index = False)
+
+with open(file_path, 'r', encoding = 'utf-8') as file:
+    content = file.read()
+
+with open(file_path, 'w', encoding = 'utf-8-sig') as file:
+    file.write(content)
+
+
